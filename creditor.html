@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>债权人与投资人分析区 - RV-Agent | 企业价值分析与风险评估</title>
+    <meta name="description" content="RV-Agent债权人与投资人分析区，提供企业价值深度分析、风险指标智能提取、重组可行性研究等专业分析功能。">
+    <meta name="keywords" content="债权人分析,投资人分析,企业价值评估,风险评估,可行性分析,数据可视化">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://rv-agent.com/creditor.html">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="style.css" as="style">
+    <link rel="preload" href="main.js" as="script">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 启动页面 -->
+    <div id="splashScreen" class="splash-screen">
+        <div class="splash-content">
+            <img src="assets/logo.png" alt="RV-Agent Logo" class="splash-logo">
+            <button class="splash-start-btn" onclick="hideSplashScreen()">开始</button>
+        </div>
+    </div>
+
+    <!-- 智能助手吉祥物 -->
+    <a href="https://adp.cloud.tencent.com/webim_exp/#/chat/DPtsfa" target="_blank" class="mascot-assistant" title="点击与AI助手对话">
+        <img src="assets/mascot.png" alt="AI助手" class="mascot-image">
+        <div class="mascot-tooltip">AI 智能助手</div>
+    </a>
+
+    <!-- 主页面内容 -->
+    <div id="mainContent" class="main-content hidden">
+    
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="brand-logo">RV</div>
+                <div class="brand-info">
+                    <div class="brand-name">Restructure Vision</div>
+                    <div class="brand-desc">智能重组解决方案平台</div>
+                </div>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">首页</a></li>
+                <li><a href="index.html#features" class="nav-link">核心功能</a></li>
+                <li><a href="index.html#workflow" class="nav-link">工作流程</a></li>
+                <li><a href="#" class="nav-link" onclick="openAboutModal(event)">关于我们</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="btn-secondary" onclick="navigateToHome()">返回主页</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <header class="page-header">
+        <button class="back-btn" onclick="navigateToHome()">← 返回</button>
+        <div class="page-header-content">
+            <h1 class="page-title">债权人与投资人分析区</h1>
+            <p class="page-subtitle">企业价值分析 · 风险评估 · 可行性研究</p>
+        </div>
+    </header>
+
+    <!-- 工作区 -->
+    <div class="workspace">
+        <!-- 文档上传 -->
+        <section class="workspace-section">
+            <h2 class="section-header">
+                📄 文档上传
+            </h2>
+            <div class="upload-area" id="uploadArea" onclick="document.getElementById('fileInput').click()">
+                <div class="upload-icon">
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="17 8 12 3 7 8"></polyline>
+                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                </div>
+                <p class="upload-text">点击上传或拖拽文件至此处</p>
+                <p class="upload-hint">支持 PDF、Excel、Word 等格式，单个文件不超过 10MB</p>
+                <input type="file" id="fileInput" accept=".pdf,.doc,.docx,.xls,.xlsx" multiple hidden>
+                <button class="upload-btn">选择文件</button>
+            </div>
+            <div id="fileList" style="margin-top: 1.5rem;"></div>
+        </section>
+
+        <!-- 智能分析 -->
+        <section class="workspace-section">
+            <h2 class="section-header">
+                🤖 智能分析
+                <span class="badge">AI 驱动</span>
+            </h2>
+            <div class="action-buttons">
+                <button class="action-btn" onclick="analyzeEnterpriseValue()">
+                    <span class="action-icon">💰</span>
+                    <span class="action-text">企业价值分析</span>
+                </button>
+                <button class="action-btn" onclick="extractRiskIndicators()">
+                    <span class="action-icon">⚠️</span>
+                    <span class="action-text">提取风险指标</span>
+                </button>
+                <button class="action-btn" onclick="generateRestructureFeasibility()">
+                    <span class="action-icon">📈</span>
+                    <span class="action-text">生成重组可行性报告</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- 数据可视化 -->
+        <section class="workspace-section">
+            <h2 class="section-header">
+                📊 数据可视化
+            </h2>
+            <div class="charts-grid">
+                <div class="chart-box">
+                    <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="20" x2="18" y2="10"></line>
+                        <line x1="12" y1="20" x2="12" y2="4"></line>
+                        <line x1="6" y1="20" x2="6" y2="14"></line>
+                    </svg>
+                    <h3 style="margin-top: 1rem; color: var(--text-dark);">企业价值分析图表</h3>
+                    <p>图表数据将在分析完成后显示</p>
+                </div>
+                <div class="chart-box">
+                    <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                        <polyline points="2 17 12 22 22 17"></polyline>
+                        <polyline points="2 12 12 17 22 12"></polyline>
+                    </svg>
+                    <h3 style="margin-top: 1rem; color: var(--text-dark);">风险指标雷达图</h3>
+                    <p>风险评估结果将在此处展示</p>
+                </div>
+                <div class="chart-box">
+                    <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path>
+                        <path d="M22 12A10 10 0 0 0 12 2v10z"></path>
+                    </svg>
+                    <h3 style="margin-top: 1rem; color: var(--text-dark);">可行性分析</h3>
+                    <p>可行性评分及详细分析</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 分析报告 -->
+        <section class="workspace-section">
+            <h2 class="section-header">📋 分析报告</h2>
+            <div class="display-box">
+                <div id="analysisDisplay" class="placeholder">
+                    分析报告将在此处显示...
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Restructure Vision</h4>
+                    <p>智能重组解决方案平台</p>
+                </div>
+                <div class="footer-col">
+                    <h4>产品</h4>
+                    <ul>
+                        <li><a href="manager.html">管理人工作区</a></li>
+                        <li><a href="creditor.html">债权人分析区</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="#" onclick="openRecruitModal(event)">招贤纳士</a></li>
+                        <li><a href="#" onclick="openRecruitModal(event)">联系我们</a></li>
+                        <li><a href="#" onclick="openTeamModal(event)">平台人员介绍</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Restructure Vision.</p>
+            </div>
+        </div>
+    </footer>
+
+    </div>
+    <!-- 结束主页面内容 -->
+
+    <!-- 关于我们弹窗 -->
+    <div id="aboutModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeAboutModal()">&times;</span>
+            <h2 class="modal-title">关于我们</h2>
+            
+            <div class="modal-section">
+                <h3 class="modal-subtitle">我们是谁？</h3>
+                <p class="modal-text">华东政法大学 Restructure Vision (RV-Agent)</p>
+            </div>
+            
+            <div class="modal-section">
+                <h3 class="modal-subtitle">如何联系我们？</h3>
+                <p class="modal-text">
+                    <strong>邮箱：</strong>
+                    <a href="mailto:rjasmine756@163.com" class="modal-email">rjasmine756@163.com</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 联系我们弹窗 -->
+    <div id="recruitModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeRecruitModal()">&times;</span>
+            <h2 class="modal-title">关于我们</h2>
+            
+            <div class="modal-section">
+                <h3 class="modal-subtitle">我们是谁？</h3>
+                <p class="modal-text">华东政法大学 Restructure Vision (RV-Agent)</p>
+            </div>
+            
+            <div class="modal-section">
+                <h3 class="modal-subtitle">如何联系我们？</h3>
+                <p class="modal-text">
+                    <strong>邮箱：</strong>
+                    <a href="mailto:rjasmine756@163.com" class="modal-email">rjasmine756@163.com</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 平台人员介绍弹窗 -->
+    <div id="teamModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeTeamModal()">&times;</span>
+            <h2 class="modal-title">平台人员介绍</h2>
+            
+            <div class="modal-section">
+                <h3 class="modal-subtitle">研发团队</h3>
+                <p class="modal-text">
+                    RV-Agent 平台由华东政法大学的研究团队倾力打造，团队成员来自法学、计算机科学、数据科学等多个专业领域，致力于将前沿的人工智能技术与企业重组实务相结合。
+                </p>
+            </div>
+            
+            <div class="modal-section">
+                <h3 class="modal-subtitle">核心成员</h3>
+                <p class="modal-text">
+                    <strong>项目负责人：</strong>负责整体项目规划与协调，确保平台功能与法律实务需求的高度契合。<br><br>
+                    <strong>技术开发团队：</strong>负责AI算法研发、系统架构设计与前后端开发，保障平台的稳定运行与持续优化。<br><br>
+                    <strong>法律专家团队：</strong>提供专业法律指导，确保平台输出的方案符合相关法律法规要求。<br><br>
+                    <strong>数据分析团队：</strong>负责企业数据挖掘与分析，为智能决策提供数据支撑。
+                </p>
+            </div>
+            
+            <div class="modal-section">
+                <h3 class="modal-subtitle">技术特色</h3>
+                <p class="modal-text">
+                    平台采用先进的自然语言处理技术，能够智能解析法律文档，自动提取关键信息，并基于大数据分析为企业重组提供科学建议。团队持续关注AI技术发展，不断优化算法模型，提升平台的智能化水平。
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="utils.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

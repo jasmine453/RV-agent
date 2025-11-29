@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Restructure Vision – RV-Agent | AI驱动的企业重组智能平台</title>
+    <meta name="description" content="RV-Agent是华东政法大学开发的AI驱动企业重组智能平台，提供债务人管理人工作区和债权人投资人分析区，智能文档处理、自动生成方案、企业价值分析。">
+    <meta name="keywords" content="企业重组,破产重整,债权人,管理人,AI智能分析,法律科技,华东政法大学,RV-Agent">
+    <meta name="author" content="华东政法大学 Restructure Vision团队">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rv-agent.com/">
+    <meta property="og:title" content="Restructure Vision – RV-Agent | AI驱动的企业重组智能平台">
+    <meta property="og:description" content="AI驱动的企业重组智能平台，提供专业的债务重组解决方案，智能文档处理和企业价值分析。">
+    <meta property="og:image" content="assets/logo.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://rv-agent.com/">
+    <meta property="twitter:title" content="Restructure Vision – RV-Agent">
+    <meta property="twitter:description" content="AI驱动的企业重组智能平台">
+    <meta property="twitter:image" content="assets/logo.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/logo.png">
+    <link rel="apple-touch-icon" href="assets/logo.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://rv-agent.com/">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="style.css" as="style">
+    <link rel="preload" href="main.js" as="script">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "RV-Agent",
+        "alternateName": "Restructure Vision Agent",
+        "description": "AI驱动的企业重组智能平台",
+        "url": "https://rv-agent.com",
+        "author": {
+            "@type": "Organization",
+            "name": "华东政法大学",
+            "url": "https://www.ecupl.edu.cn/"
+        },
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "CNY"
+        }
+    }
+    </script>
+</head>
+<body>
+    <!-- 启动页面 -->
+    <div id="splashScreen" class="splash-screen">
+        <div class="splash-content">
+            <img src="assets/logo.png" alt="RV-Agent Logo" class="splash-logo">
+            <button class="splash-start-btn" onclick="hideSplashScreen()">开始</button>
+        </div>
+    </div>
+
+    <!-- 智能助手吉祥物 -->
+    <a href="https://adp.cloud.tencent.com/webim_exp/#/chat/DPtsfa" target="_blank" class="mascot-assistant" title="点击与AI助手对话">
+        <img src="assets/mascot.png" alt="AI助手" class="mascot-image">
+        <div class="mascot-tooltip">AI 智能助手</div>
+    </a>
+
+    <!-- 主页面内容 -->
+    <div id="mainContent" class="main-content hidden">
+    
+    <!-- 导航栏 -->
+    <nav class="navbar" role="navigation" aria-label="主导航">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="brand-logo" role="img" aria-label="RV-Agent标志">RV</div>
+                <div class="brand-info">
+                    <div class="brand-name">Restructure Vision</div>
+                    <div class="brand-desc">智能重组解决方案平台</div>
+                </div>
+            </div>
+            <ul class="nav-menu" role="menubar">
+                <li role="none"><a href="#home" class="nav-link active" role="menuitem" aria-current="page">首页</a></li>
+                <li role="none"><a href="#features" class="nav-link" role="menuitem">核心功能</a></li>
+                <li role="none"><a href="#workflow" class="nav-link" role="menuitem">工作流程</a></li>
+                <li role="none"><a href="#" class="nav-link" role="menuitem" onclick="openAboutModal(event)" aria-haspopup="dialog">关于我们</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="btn-secondary" onclick="alert('登录功能开发中')" aria-label="用户登录">登录</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主屏幕 Hero Section -->
+    <section class="hero-section" aria-label="主页横幅">
+        <div class="hero-container">
+            <h1 class="hero-title">AI 驱动的企业重组与重整智能化平台</h1>
+            <div class="hero-actions">
+                <button class="btn-large btn-primary" 
+                        onclick="document.getElementById('features').scrollIntoView({behavior: 'smooth'})"
+                        aria-label="跳转到功能选择区域">
+                    选择角色
+                </button>
+            </div>
+        </div>
+        <div class="scroll-indicator" aria-label="向下滚动查看更多内容">
+            <span>向下滚动</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+        </div>
+    </section>
+
+    <!-- 重组流程时间轴 -->
+    <section class="timeline-section">
+        <div class="container">
+            <h2 class="section-title">企业重组全流程</h2>
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-number">01</div>
+                        <h3 class="timeline-title">庭外重组</h3>
+                        <p class="timeline-desc">债务人与债权人自主协商，达成债务重组协议，避免进入司法程序</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-number">02</div>
+                        <h3 class="timeline-title">预重整</h3>
+                        <p class="timeline-desc">在正式重整前进行预协商和方案制定，提高重整成功率</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-number">03</div>
+                        <h3 class="timeline-title">庭内重整</h3>
+                        <p class="timeline-desc">进入法院主导的破产重整程序，依法完成企业重整</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 核心功能 -->
+    <section id="features" class="core-features-section" aria-labelledby="features-title">
+        <div class="container">
+            <h2 id="features-title" class="section-title">核心功能</h2>
+            <div class="core-features-grid" role="list">
+                <!-- 债务人/管理人功能 -->
+                <article class="core-feature-card" role="listitem" aria-labelledby="manager-title">
+                    <div class="feature-header">
+                        <div class="feature-icon-large" role="img" aria-label="债务人与管理人工作区图标">
+                            <img src="assets/creditor-icon.jpg" alt="管理人工作区功能图标" loading="lazy">
+                        </div>
+                        <h3 id="manager-title" class="feature-card-title">债务人与管理人工作区</h3>
+                        <p class="feature-card-desc">智能文档处理，自动生成重组方案与会议报告</p>
+                    </div>
+                    <div class="feature-details">
+                        <h4>核心特性</h4>
+                        <ul role="list">
+                            <li role="listitem">庭外重组协议自动生成</li>
+                            <li role="listitem">预重整方案智能起草</li>
+                            <li role="listitem">会议字段智能提取</li>
+                            <li role="listitem">债权人会议报告生成</li>
+                        </ul>
+                    </div>
+                    <button class="btn-feature" 
+                            onclick="navigateToManager()" 
+                            aria-label="进入债务人与管理人工作区">
+                        进入功能
+                    </button>
+                </article>
+
+                <!-- 债权人/投资人功能 -->
+                <article class="core-feature-card" role="listitem" aria-labelledby="creditor-title">
+                    <div class="feature-header">
+                        <div class="feature-icon-large" role="img" aria-label="债权人与投资人分析区图标">
+                            <img src="assets/manager-icon.jpg" alt="债权人分析区功能图标" loading="lazy">
+                        </div>
+                        <h3 id="creditor-title" class="feature-card-title">债权人与投资人分析区</h3>
+                        <p class="feature-card-desc">深度企业价值分析，全方位风险评估与可行性研究</p>
+                    </div>
+                    <div class="feature-details">
+                        <h4>分析范畴</h4>
+                        <ul role="list">
+                            <li role="listitem">企业价值深度评估</li>
+                            <li role="listitem">风险指标智能提取</li>
+                            <li role="listitem">重组可行性分析</li>
+                            <li role="listitem">数据可视化展示</li>
+                        </ul>
+                    </div>
+                    <button class="btn-feature" 
+                            onclick="navigateToCreditor()" 
+                            aria-label="进入债权人与投资人分析区">
+                        进入功能
+                    </button>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 工作流程 -->
+    <section id="workflow" class="workflow-section">
+        <div class="container">
+            <h2 class="section-title">智能分析工作流程</h2>
+            <div class="workflow-steps">
+                <div class="workflow-step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">上传文档</h3>
+                    <p class="step-desc">支持PDF、Word等多种格式</p>
+                </div>
+                <div class="workflow-step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">AI智能分析</h3>
+                    <p class="step-desc">深度分析</p>
+                </div>
+                <div class="workflow-step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">数据提取</h3>
+                    <p class="step-desc">自动提取关键信息字段</p>
+                </div>
+                <div class="workflow-step">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">生成报告</h3>
+                    <p class="step-desc">输出专业分析与建议</p>
+                </div>
+                <div class="workflow-step">
+                    <div class="step-number">5</div>
+                    <h3 class="step-title">方案输出</h3>
+                    <p class="step-desc">获得可直接使用的方案文本</p>
+                </div>
+            </div>
+
+            <!-- 流程详细展示 -->
+            <div class="workflow-details">
+                <div class="workflow-detail-item">
+                    <div class="workflow-visual">
+                        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                    </div>
+                    <div class="workflow-text">
+                        <h3>智能上传与解析</h3>
+                        <p>RV-Agent 支持多种文档格式上传，自动识别文档结构，提取关键条款与财务信息。</p>
+                    </div>
+                </div>
+
+                <div class="workflow-detail-item">
+                    <div class="workflow-text">
+                        <h3>AI 风险评分系统</h3>
+                        <p>基于深度学习算法，快速分析企业状况，识别潜在风险与重组机会。</p>
+                        <div class="risk-badges">
+                            <span class="risk-badge low">低风险</span>
+                            <span class="risk-badge medium">中风险</span>
+                            <span class="risk-badge high">高风险</span>
+                        </div>
+                    </div>
+                    <div class="workflow-visual">
+                        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="18" y1="20" x2="18" y2="10"></line>
+                            <line x1="12" y1="20" x2="12" y2="4"></line>
+                            <line x1="6" y1="20" x2="6" y2="14"></line>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="workflow-detail-item">
+                    <div class="workflow-visual">
+                        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                        </svg>
+                    </div>
+                    <div class="workflow-text">
+                        <h3>方案输出</h3>
+                        <p>生成完整的重组方案文档，可直接用于正式场合或进一步修改完善。</p>
+                        <div class="output-tags">
+                            <span class="tag">新增条款</span>
+                            <span class="tag">修改建议</span>
+                            <span class="tag">风险提示</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Restructure Vision</h4>
+                    <p>智能重组解决方案平台</p>
+                </div>
+                <div class="footer-col">
+                    <h4>产品</h4>
+                    <ul>
+                        <li><a href="#" onclick="navigateToManager()">管理人工作区</a></li>
+                        <li><a href="#" onclick="navigateToCreditor()">债权人分析区</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="#" onclick="openRecruitModal(event)">招贤纳士</a></li>
+                        <li><a href="#" onclick="openRecruitModal(event)">联系我们</a></li>
+                        <li><a href="#" onclick="openTeamModal(event)">平台人员介绍</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Restructure Vision.</p>
+            </div>
+        </div>
+    </footer>
+
+    </div>
+    <!-- 结束主页面内容 -->
+
+    <!-- 关于我们弹窗 -->
+    <div id="aboutModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeAboutModal()">&times;</span>
+            <h2 class="modal-title">关于我们</h2>
+            
+            <div class="modal-section">
+                <h3 class="modal-subtitle">我们是谁？</h3>
+                <p class="modal-text">华东政法大学 Restructure Vision (RV-Agent)</p>
+            </div>
+            
+            <div class="modal-section">
+                <h3 class="modal-subtitle">如何联系我们？</h3>
+                <p class="modal-text">
+                    <strong>邮箱：</strong>
+                    <a href="mailto:rjasmine756@163.com" class="modal-email">rjasmine756@163.com</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 联系我们弹窗 -->
+    <div id="recruitModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeRecruitModal()">&times;</span>
+            <h2 class="modal-title">关于我们</h2>
+            
+            <div class="modal-section">
+                <h3 class="modal-subtitle">我们是谁？</h3>
+                <p class="modal-text">华东政法大学 Restructure Vision (RV-Agent)</p>
+            </div>
+            
+            <div class="modal-section">
+                <h3 class="modal-subtitle">如何联系我们？</h3>
+                <p class="modal-text">
+                    <strong>邮箱：</strong>
+                    <a href="mailto:rjasmine756@163.com" class="modal-email">rjasmine756@163.com</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 平台人员介绍弹窗 -->
+    <div id="teamModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeTeamModal()">&times;</span>
+            <h2 class="modal-title">平台人员介绍</h2>
+            
+            <div class="modal-section">
+                <h3 class="modal-subtitle">研发团队</h3>
+                <p class="modal-text">
+                    RV-Agent 平台由华东政法大学的研究团队倾力打造，团队成员来自法学、计算机科学、数据科学等多个专业领域，致力于将前沿的人工智能技术与企业重组实务相结合。
+                </p>
+            </div>
+            
+            <div class="modal-section">
+                <h3 class="modal-subtitle">核心成员</h3>
+                <p class="modal-text">
+                    <strong>项目负责人：</strong>负责整体项目规划与协调，确保平台功能与法律实务需求的高度契合。<br><br>
+                    <strong>技术开发团队：</strong>负责AI算法研发、系统架构设计与前后端开发，保障平台的稳定运行与持续优化。<br><br>
+                    <strong>法律专家团队：</strong>提供专业法律指导，确保平台输出的方案符合相关法律法规要求。<br><br>
+                    <strong>数据分析团队：</strong>负责企业数据挖掘与分析，为智能决策提供数据支撑。
+                </p>
+            </div>
+            
+            <div class="modal-section">
+                <h3 class="modal-subtitle">技术特色</h3>
+                <p class="modal-text">
+                    平台采用先进的自然语言处理技术，能够智能解析法律文档，自动提取关键信息，并基于大数据分析为企业重组提供科学建议。团队持续关注AI技术发展，不断优化算法模型，提升平台的智能化水平。
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="utils.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

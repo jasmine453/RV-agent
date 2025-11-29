@@ -1,0 +1,55 @@
+# 依赖
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# 环境变量
+.env
+.env.local
+.env.production
+
+# 上传文件
+uploads/*
+!uploads/.gitkeep
+
+# Windows 脚本
+启动服务器.bat
+
+# 临时文档和说明（已删除的文档类型）
+*修复说明.md
+*优化说明.md
+*问题*.md
+项目文档清单.md
+上传清单.md
+*说明.md
+
+# 模板文件夹中的额外文件（只保留模板）
+庭外重组协议/债务重组协议.pdf
+庭外重组协议/EX-10.pdf
+庭外重组协议/PREPACKAGED*.pdf
+庭外重组协议/关于*.pdf
+预重整方案/预重整方案.pdf
+一债会报告模板/现有材料/
+
+# 系统文件
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# 日志
+logs/
+*.log
+
+# 临时文件
+tmp/
+temp/
+
