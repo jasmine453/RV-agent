@@ -1856,19 +1856,11 @@ async function callAPI(endpoint, data, options = {}) {
             timeoutError.fullError = error.message || 'Request timeout';
             throw timeoutError;
         } 
-        // 处理连接关闭错误（ERR_CONNECTION_CLOSED）
-        else if (error.message.includes('ERR_CONNECTION_CLOSED') || error.message.includes('connection closed') || error.message.includes('Connection closed')) {
-            const connectionError = new Error('连接被意外关闭');
-            connectionError.errorType = 'connection_closed';
-            connectionError.errorDetails = `连接在处理请求时被关闭。\n\n可能的原因：\n1. **Render 免费版超时限制**（15秒）- 请求处理时间超过限制，连接被终止\n2. **服务器崩溃** - 服务器在处理请求时发生错误导致崩溃\n3. **环境变量未配置** - DEEPSEEK_API_KEY 未配置导致服务器无法处理请求\n4. **服务器资源不足** - Render 免费版资源限制导致服务不稳定\n5. **网络中断** - 网络连接不稳定\n\n建议：\n- 检查 Render Dashboard → Logs 标签页，查看服务器日志中的错误信息\n- 确认 DEEPSEEK_API_KEY 已正确配置\n- 如果是超时问题，考虑升级 Render 计划或优化请求处理时间\n- 尝试重新部署服务`;
-            connectionError.fullError = error.message || 'Connection closed unexpectedly';
-            throw connectionError;
-        }
         // 处理网络连接错误
         else if (error.message.includes('Failed to fetch') || error.message.includes('ECONNREFUSED') || error.message.includes('NetworkError')) {
             const networkError = new Error('无法连接到服务器');
             networkError.errorType = 'network';
-            networkError.errorDetails = '无法连接到后端服务器。\n\n请检查：\n1. 后端服务器是否已启动（运行 npm start）\n2. 服务器是否运行在正确的地址\n3. 防火墙是否阻止了连接\n4. 浏览器控制台是否有其他错误信息\n5. Render 服务是否正常运行\n6. 检查 Render Dashboard 中的服务状态和日志';
+            networkError.errorDetails = '无法连接到后端服务器。\n\n请检查：\n1. 后端服务器是否已启动（运行 npm start）\n2. 服务器是否运行在正确的地址\n3. 防火墙是否阻止了连接\n4. 浏览器控制台是否有其他错误信息\n5. Render 服务是否正常运行';
             networkError.fullError = error.message || 'Network connection failed';
             throw networkError;
         } 
