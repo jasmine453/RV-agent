@@ -2095,14 +2095,14 @@ async function callAPI(endpoint, data, options = {}) {
 }
 
 /**
- * 轮询任务状态直到完成
+ * 轮询任务状态直到完成 - 无限制模式
  * @param {string} taskId - 任务ID
  * @param {function} onProgress - 进度更新回调函数
- * @param {number} maxAttempts - 最大轮询次数 (默认100次，约10分钟)
- * @param {number} interval - 轮询间隔(ms) (默认6000ms = 6秒)
+ * @param {number} maxAttempts - 最大轮询次数 (默认200次，约26分钟)
+ * @param {number} interval - 轮询间隔(ms) (默认8000ms = 8秒)
  * @returns {Promise<object>} 任务结果
  */
-async function pollTaskStatus(taskId, onProgress = null, maxAttempts = 150, interval = 8000) {
+async function pollTaskStatus(taskId, onProgress = null, maxAttempts = 200, interval = 8000) {
     console.log(`🔄 开始轮询任务状态: ${taskId}`);
     let consecutiveErrors = 0; // 连续错误计数
     const maxConsecutiveErrors = 5; // 最多连续5次错误后才放弃
