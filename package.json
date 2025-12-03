@@ -1,0 +1,49 @@
+{
+  "name": "rv-agent-api",
+  "version": "2.0.2",
+  "description": "RV-Agent - AI驱动的重整投资分析平台",
+  "main": "api-server.js",
+  "scripts": {
+    "start": "node api-server.js",
+    "dev": "nodemon api-server.js",
+    "postinstall": "node -e \"const fs = require('fs'); ['uploads', 'logs'].forEach(dir => !fs.existsSync(dir) && fs.mkdirSync(dir, { recursive: true }));\""
+  },
+  "keywords": [
+    "rv-agent",
+    "deepseek",
+    "document-analysis",
+    "enterprise-restructuring",
+    "ai",
+    "bankruptcy",
+    "restructuring"
+  ],
+  "author": "RV-Agent Team - 华东政法大学",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "docx": "^9.5.1",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-rate-limit": "^7.1.5",
+    "express-validator": "^7.0.1",
+    "helmet": "^7.1.0",
+    "mammoth": "^1.11.0",
+    "multer": "^1.4.5-lts.1",
+    "node-schedule": "^2.1.1",
+    "openai": "^4.20.1",
+    "pdf-lib": "^1.17.1",
+    "pdf-parse": "^1.1.1",
+    "redis": "^4.6.11",
+    "tesseract.js": "^5.1.1",
+    "winston": "^3.11.0",
+    "winston-daily-rotate-file": "^4.7.1",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}

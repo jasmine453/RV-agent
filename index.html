@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Restructure Vision – RV-Agent | AI驱动的企业重组智能平台</title>
+    <meta name="description" content="RV-Agent是华东政法大学开发的AI驱动企业重组智能平台，提供债务人管理人工作区和债权人投资人分析区，智能文档处理、自动生成方案、企业价值分析。">
+    <meta name="keywords" content="企业重组,破产重整,债权人,管理人,AI智能分析,法律科技,华东政法大学,RV-Agent">
+    <meta name="author" content="华东政法大学 Restructure Vision团队">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rv-agent.com/">
+    <meta property="og:title" content="Restructure Vision – RV-Agent | AI驱动的企业重组智能平台">
+    <meta property="og:description" content="AI驱动的企业重组智能平台，提供专业的债务重组解决方案，智能文档处理和企业价值分析。">
+    <meta property="og:image" content="assets/logo.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://rv-agent.com/">
+    <meta property="twitter:title" content="Restructure Vision – RV-Agent">
+    <meta property="twitter:description" content="AI驱动的企业重组智能平台">
+    <meta property="twitter:image" content="assets/logo.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/logo.png">
+    <link rel="apple-touch-icon" href="assets/logo.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://rv-agent.com/">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="style.css" as="style">
+    <link rel="preload" href="main.js" as="script">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "RV-Agent",
+        "alternateName": "Restructure Vision Agent",
+        "description": "AI驱动的企业重组智能平台",
+        "url": "https://rv-agent.com",
+        "author": {
+            "@type": "Organization",
+            "name": "华东政法大学",
+            "url": "https://www.ecupl.edu.cn/"
+        },
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "CNY"
+        }
+    }
+    </script>
+</head>
+<body>
+    <!-- 启动页面 -->
+    <div id="splashScreen" class="splash-screen">
+        <div class="splash-content">
+            <img src="assets/logo.png" alt="RV-Agent Logo" class="splash-logo">
+            <button class="splash-start-btn" onclick="hideSplashScreen()">开始</button>
+        </div>
+    </div>
+
+    <!-- 智能助手吉祥物 -->
+    <a href="https://adp.cloud.tencent.com/webim_exp/#/chat/DPtsfa" target="_blank" class="mascot-assistant" title="点击与AI助手对话">
+        <img src="assets/mascot.png" alt="AI助手" class="mascot-image">
+        <div class="mascot-tooltip">AI 智能助手</div>
+    </a>
+
+    <!-- 主页面内容 -->
+    <div id="mainContent" class="main-content hidden">
+    
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="brand-logo">RV</div>
+                <div class="brand-info">
+                    <div class="brand-name">Restructure Vision</div>
+                    <div class="brand-desc">AI驱动的重整投资分析平台</div>
+                </div>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">首页</a></li>
+                <li><a href="#workflow" class="nav-link">工作流程</a></li>
+                <li><a href="#" class="nav-link" onclick="openAboutModal(event)">关于我们</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 主屏幕 -->
+    <section class="hero-section">
+        <div class="hero-container">
+            <h1 class="hero-title" style="animation: fadeInUp 1s ease-out;">
+                AI驱动的重整投资分析平台
+            </h1>
+            <p class="hero-subtitle" style="animation: fadeInUp 1.2s ease-out;">
+                智能文档处理 · 专业方案生成 · 企业价值评估
+            </p>
+            <div class="hero-actions" style="animation: fadeInUp 1.6s ease-out;">
+                <button class="btn-large btn-primary" onclick="document.querySelector('.risk-assessment-section').scrollIntoView({behavior: 'smooth'})" style="margin-right: 1rem;">
+                    开始评估
+                </button>
+                <button class="btn-large btn-secondary" onclick="window.location.href='#workflow'" style="background: white; color: #000; border: 2px solid #000;">
+                    了解更多
+                </button>
+            </div>
+        </div>
+        <div class="scroll-indicator" onclick="document.querySelector('.risk-assessment-section').scrollIntoView({behavior: 'smooth'})" style="cursor: pointer;">
+            <span style="display: block; text-align: center;">向下滚动探索</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+        </div>
+    </section>
+    
+    <style>
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% {
+            transform: translateY(0);
+        }
+        40% {
+            transform: translateY(-10px);
+        }
+        60% {
+            transform: translateY(-5px);
+        }
+    }
+    
+    .hero-badge {
+        display: inline-block;
+        padding: 0.5rem 1.2rem;
+        background: linear-gradient(135deg, #000000 0%, #434343 100%);
+        color: white;
+        border-radius: 50px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        animation: fadeInUp 0.8s ease-out;
+    }
+    
+    .btn-large {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .btn-large:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    }
+    
+    .feature-tag {
+        transition: all 0.3s ease;
+    }
+    
+    .feature-tag:hover {
+        background: rgba(0,0,0,0.08);
+        transform: translateY(-2px);
+    }
+    </style>
+
+    <!-- 风险评估分级系统 -->
+    <section class="risk-assessment-section" style="padding: 5rem 0; background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);">
+        <div class="container">
+            <h2 class="section-title" style="background: linear-gradient(135deg, #000000 0%, #434343 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">企业风险评估分级系统</h2>
+            <p style="text-align: center; color: #666; font-size: 1.1rem; margin-top: -1rem; margin-bottom: 3rem;">AI驱动的智能风险评估，为您的企业重组提供科学决策依据</p>
+            
+            <!-- 搜索框 -->
+            <div style="max-width: 900px; margin: 2rem auto 4rem;">
+                <div style="position: relative; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-radius: 16px;">
+                    <input type="text" id="companySearchInput" placeholder="🔍 搜索企业名称或上传文件进行风险评估..." 
+                           style="width: 100%; padding: 1.3rem 3.5rem 1.3rem 1.5rem; border: 2px solid #e0e0e0; border-radius: 16px; font-size: 1.05rem; transition: all 0.3s; background: #ffffff;">
+                    <button onclick="searchCompany()" style="position: absolute; right: 0.5rem; top: 50%; transform: translateY(-50%); background: linear-gradient(135deg, #000000 0%, #434343 100%); color: white; border: none; padding: 0.9rem 2.2rem; border-radius: 12px; cursor: pointer; font-weight: 600; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.15);">
+                        搜索
+                    </button>
+                </div>
+            </div>
+            
+            <!-- 风险等级卡片展示区 -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem; max-width: 1400px; margin: 0 auto;">
+                
+                <!-- A级企业 -->
+                <div class="risk-card" data-risk-level="A" onclick="showRiskDetails('A')" style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); border: 3px solid #000000; border-radius: 24px; padding: 2.5rem 2rem; text-align: center; cursor: pointer; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12); position: relative; overflow: hidden;">
+                    <div style="position: absolute; top: -50px; right: -50px; width: 150px; height: 150px; background: radial-gradient(circle, rgba(0,0,0,0.03) 0%, transparent 70%); border-radius: 50%;"></div>
+                    <div style="width: 90px; height: 90px; background: linear-gradient(135deg, #000000 0%, #434343 100%); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.8rem; font-weight: 700; margin: 0 auto 1.5rem; box-shadow: 0 4px 16px rgba(0,0,0,0.2); position: relative;">A</div>
+                    <h3 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 0.8rem; color: #000000;">A级企业</h3>
+                    <p style="font-size: 1.05rem; color: #666666; line-height: 1.7; margin-bottom: 1.5rem;">低风险 · 优质企业<br><span style="font-size: 0.9rem; color: #999;">财务稳健 · 重组可行性高</span></p>
+                    <div style="background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%); padding: 1.1rem; border-radius: 12px; margin-top: 1rem; transition: all 0.3s;">
+                        <p style="font-size: 0.95rem; color: #666; margin: 0; font-weight: 500;">点击查看详细分析 →</p>
+                    </div>
+                </div>
+                
+                <!-- B级企业 -->
+                <div class="risk-card" data-risk-level="B" onclick="showRiskDetails('B')" style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); border: 3px solid #666666; border-radius: 24px; padding: 2.5rem 2rem; text-align: center; cursor: pointer; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 8px 24px rgba(102, 102, 102, 0.12); position: relative; overflow: hidden;">
+                    <div style="position: absolute; top: -50px; right: -50px; width: 150px; height: 150px; background: radial-gradient(circle, rgba(102,102,102,0.03) 0%, transparent 70%); border-radius: 50%;"></div>
+                    <div style="width: 90px; height: 90px; background: linear-gradient(135deg, #666666 0%, #888888 100%); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.8rem; font-weight: 700; margin: 0 auto 1.5rem; box-shadow: 0 4px 16px rgba(102,102,102,0.2); position: relative;">B</div>
+                    <h3 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 0.8rem; color: #000000;">B级企业</h3>
+                    <p style="font-size: 1.05rem; color: #666666; line-height: 1.7; margin-bottom: 1.5rem;">中等风险 · 良好企业<br><span style="font-size: 0.9rem; color: #999;">需要关注 · 重组可行</span></p>
+                    <div style="background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%); padding: 1.1rem; border-radius: 12px; margin-top: 1rem; transition: all 0.3s;">
+                        <p style="font-size: 0.95rem; color: #666; margin: 0; font-weight: 500;">点击查看详细分析 →</p>
+                    </div>
+                </div>
+                
+                <!-- C级企业 -->
+                <div class="risk-card" data-risk-level="C" onclick="showRiskDetails('C')" style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); border: 3px solid #999999; border-radius: 24px; padding: 2.5rem 2rem; text-align: center; cursor: pointer; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 8px 24px rgba(153, 153, 153, 0.12); position: relative; overflow: hidden;">
+                    <div style="position: absolute; top: -50px; right: -50px; width: 150px; height: 150px; background: radial-gradient(circle, rgba(153,153,153,0.03) 0%, transparent 70%); border-radius: 50%;"></div>
+                    <div style="width: 90px; height: 90px; background: linear-gradient(135deg, #999999 0%, #aaaaaa 100%); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.8rem; font-weight: 700; margin: 0 auto 1.5rem; box-shadow: 0 4px 16px rgba(153,153,153,0.2); position: relative;">C</div>
+                    <h3 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 0.8rem; color: #000000;">C级企业</h3>
+                    <p style="font-size: 1.05rem; color: #666666; line-height: 1.7; margin-bottom: 1.5rem;">较高风险 · 警惕企业<br><span style="font-size: 0.9rem; color: #999;">需要改善 · 谨慎评估</span></p>
+                    <div style="background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%); padding: 1.1rem; border-radius: 12px; margin-top: 1rem; transition: all 0.3s;">
+                        <p style="font-size: 0.95rem; color: #666; margin: 0; font-weight: 500;">点击查看详细分析 →</p>
+                    </div>
+                </div>
+                
+                <!-- D级企业 -->
+                <div class="risk-card" data-risk-level="D" onclick="showRiskDetails('D')" style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); border: 3px solid #cccccc; border-radius: 24px; padding: 2.5rem 2rem; text-align: center; cursor: pointer; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 8px 24px rgba(204, 204, 204, 0.12); position: relative; overflow: hidden;">
+                    <div style="position: absolute; top: -50px; right: -50px; width: 150px; height: 150px; background: radial-gradient(circle, rgba(204,204,204,0.03) 0%, transparent 70%); border-radius: 50%;"></div>
+                    <div style="width: 90px; height: 90px; background: linear-gradient(135deg, #cccccc 0%, #dddddd 100%); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.8rem; font-weight: 700; margin: 0 auto 1.5rem; box-shadow: 0 4px 16px rgba(204,204,204,0.2); position: relative;">D</div>
+                    <h3 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 0.8rem; color: #000000;">D级企业</h3>
+                    <p style="font-size: 1.05rem; color: #666666; line-height: 1.7; margin-bottom: 1.5rem;">高风险 · 困难企业<br><span style="font-size: 0.9rem; color: #999;">深度评估 · 审慎决策</span></p>
+                    <div style="background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%); padding: 1.1rem; border-radius: 12px; margin-top: 1rem; transition: all 0.3s;">
+                        <p style="font-size: 0.95rem; color: #666; margin: 0; font-weight: 500;">点击查看详细分析 →</p>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <!-- 波浪式查看按钮 -->
+            <div style="text-align: center; margin-top: 3rem;">
+                <button onclick="toggleRiskLevels()" style="background: #000000; color: white; border: none; padding: 1rem 3rem; border-radius: 50px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);">
+                    换一波查看 →
+                </button>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- 工作流程 -->
+    <section id="workflow" class="workflow-section">
+        <div class="container">
+            <h2 class="section-title">智能分析工作流程</h2>
+            <div class="workflow-steps">
+                <div class="workflow-step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">上传文档</h3>
+                    <p class="step-desc">支持PDF、Word等多种格式</p>
+                </div>
+                <div class="workflow-step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">AI智能分析</h3>
+                    <p class="step-desc">深度分析</p>
+                </div>
+                <div class="workflow-step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">数据提取</h3>
+                    <p class="step-desc">自动提取关键信息字段</p>
+                </div>
+                <div class="workflow-step">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">生成报告</h3>
+                    <p class="step-desc">输出专业分析与建议</p>
+                </div>
+                <div class="workflow-step">
+                    <div class="step-number">5</div>
+                    <h3 class="step-title">方案输出</h3>
+                    <p class="step-desc">获得可直接使用的方案文本</p>
+                </div>
+            </div>
+
+            <!-- 流程详细展示 -->
+            <div class="workflow-details">
+                <div class="workflow-detail-item">
+                    <div class="workflow-visual">
+                        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                    </div>
+                    <div class="workflow-text">
+                        <h3>智能上传与解析</h3>
+                        <p>RV-Agent 支持多种文档格式上传，自动识别文档结构，提取关键条款与财务信息。</p>
+                    </div>
+                </div>
+
+                <div class="workflow-detail-item">
+                    <div class="workflow-text">
+                        <h3>AI 风险评分系统</h3>
+                        <p>基于深度学习算法，快速分析企业状况，识别潜在风险与重组机会。</p>
+                        <div class="risk-badges">
+                            <span class="risk-badge low">低风险</span>
+                            <span class="risk-badge medium">中风险</span>
+                            <span class="risk-badge high">高风险</span>
+                        </div>
+                    </div>
+                    <div class="workflow-visual">
+                        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="18" y1="20" x2="18" y2="10"></line>
+                            <line x1="12" y1="20" x2="12" y2="4"></line>
+                            <line x1="6" y1="20" x2="6" y2="14"></line>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="workflow-detail-item">
+                    <div class="workflow-visual">
+                        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                        </svg>
+                    </div>
+                    <div class="workflow-text">
+                        <h3>方案输出</h3>
+                        <p>生成完整的重组方案文档，可直接用于正式场合或进一步修改完善。</p>
+                        <div class="output-tags">
+                            <span class="tag">新增条款</span>
+                            <span class="tag">修改建议</span>
+                            <span class="tag">风险提示</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Restructure Vision</h4>
+                    <p>AI驱动的重整投资分析平台</p>
+                </div>
+                <div class="footer-col">
+                    <h4>功能</h4>
+                    <ul>
+                        <li><a href="creditor.html?skipSplash=true">企业价值详细评估</a></li>
+                        <li><a href="manager.html?skipSplash=true">庭外重组协议</a></li>
+                        <li><a href="feasibility-report.html?skipSplash=true">重组可行性报告</a></li>
+                        <li><a href="pre-restructure.html?skipSplash=true">预重整方案</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="#" onclick="openRecruitModal(event)">招贤纳士</a></li>
+                        <li><a href="#" onclick="openRecruitModal(event)">联系我们</a></li>
+                        <li><a href="#" onclick="openTeamModal(event)">平台人员介绍</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Restructure Vision.</p>
+            </div>
+        </div>
+    </footer>
+
+    </div>
+    <!-- 结束主页面内容 -->
+
+    <!-- 风险详情弹窗 -->
+    <div id="riskDetailModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); z-index: 9999; overflow-y: auto;">
+        <div style="min-height: 100%; display: flex; align-items: center; justify-content: center; padding: 2rem;">
+            <div style="background: white; border-radius: 24px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); max-width: 900px; width: 100%; max-height: 90vh; overflow-y: auto; position: relative;">
+                <button onclick="closeRiskDetailModal()" style="position: absolute; top: 1.5rem; right: 1.5rem; background: #f5f5f5; border: none; border-radius: 50%; width: 40px; height: 40px; cursor: pointer; font-size: 1.5rem; color: #666; transition: all 0.3s; z-index: 10;">×</button>
+                
+                <div style="padding: 3rem;">
+                    <div id="riskDetailContent">
+                        <!-- 动态内容将在这里显示 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 工作流程选择弹窗 -->
+    <div id="workflowSelectionModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.75); z-index: 10000; align-items: center; justify-content: center; backdrop-filter: blur(4px);">
+        <div style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); border-radius: 28px; box-shadow: 0 24px 72px rgba(0, 0, 0, 0.35); max-width: 1000px; width: 90%; padding: 3.5rem 2.5rem; position: relative; animation: modalSlideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);">
+            <button onclick="closeWorkflowSelectionModal()" style="position: absolute; top: 1.5rem; right: 1.5rem; background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%); border: none; border-radius: 50%; width: 44px; height: 44px; cursor: pointer; font-size: 1.6rem; color: #666; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">×</button>
+            
+            <!-- 标题 -->
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <h2 class="workflow-modal-title" style="font-size: 1.8rem; font-weight: 700; color: #000000; margin-bottom: 0.5rem;">风险评估等级为A</h2>
+                <p class="workflow-suggestion" style="font-size: 1rem; color: #666666; display: none;"></p>
+            </div>
+            
+            <!-- 流程图 -->
+            <div style="position: relative; max-width: 900px; margin: 0 auto 3rem; padding: 2rem 0;">
+                <!-- 流程卡片 -->
+                <div style="display: flex; justify-content: center; align-items: center; position: relative; z-index: 1; gap: 0;">
+                    <!-- 01 企业价值详细评估 -->
+                    <div onclick="navigateToEnterpriseValue(); closeWorkflowSelectionModal();" style="flex-shrink: 0; width: 150px; background: white; border: 2px solid #e0e0e0; border-radius: 16px; padding: 1.5rem 1rem; text-align: center; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); position: relative; z-index: 2;">
+                        <div style="width: 50px; height: 50px; background: #000000; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: 700; margin: 0 auto 1rem;">01</div>
+                        <div style="font-size: 0.95rem; font-weight: 600; color: #000000; line-height: 1.4;">企业价值<br>详细评估</div>
+                    </div>
+                    
+                    <!-- 连接线1 -->
+                    <div style="width: 80px; height: 2px; background: #000000; flex-shrink: 0;"></div>
+                    
+                    <!-- 02 庭外重组协议 -->
+                    <div onclick="navigateToOutsideAgreement(); closeWorkflowSelectionModal();" style="flex-shrink: 0; width: 150px; background: white; border: 2px solid #e0e0e0; border-radius: 16px; padding: 1.5rem 1rem; text-align: center; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); position: relative; z-index: 2;">
+                        <div style="width: 50px; height: 50px; background: #333333; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: 700; margin: 0 auto 1rem;">02</div>
+                        <div style="font-size: 0.95rem; font-weight: 600; color: #000000; line-height: 1.4;">庭外重组<br>协议</div>
+                    </div>
+                    
+                    <!-- 连接线2 -->
+                    <div style="width: 80px; height: 2px; background: #000000; flex-shrink: 0;"></div>
+                    
+                    <!-- 03 重组可行性报告 -->
+                    <div onclick="navigateToFeasibilityReport(); closeWorkflowSelectionModal();" style="flex-shrink: 0; width: 150px; background: white; border: 2px solid #e0e0e0; border-radius: 16px; padding: 1.5rem 1rem; text-align: center; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); position: relative; z-index: 2;">
+                        <div style="width: 50px; height: 50px; background: #666666; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: 700; margin: 0 auto 1rem;">03</div>
+                        <div style="font-size: 0.95rem; font-weight: 600; color: #000000; line-height: 1.4;">重组可行性<br>报告</div>
+                    </div>
+                    
+                    <!-- 连接线3 -->
+                    <div style="width: 80px; height: 2px; background: #000000; flex-shrink: 0;"></div>
+                    
+                    <!-- 04 预重整方案 -->
+                    <div onclick="navigateToPreRestructure(); closeWorkflowSelectionModal();" style="flex-shrink: 0; width: 150px; background: white; border: 2px solid #e0e0e0; border-radius: 16px; padding: 1.5rem 1rem; text-align: center; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); position: relative; z-index: 2;">
+                        <div style="width: 50px; height: 50px; background: #999999; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: 700; margin: 0 auto 1rem;">04</div>
+                        <div style="font-size: 0.95rem; font-weight: 600; color: #000000; line-height: 1.4;">预重整<br>方案</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 提示文字 -->
+            <div style="text-align: center; color: #888888; font-size: 0.9rem;">
+                点击任意流程卡片进入相应功能板块
+            </div>
+        </div>
+    </div>
+
+    <!-- 关于我们弹窗 -->
+    <div id="aboutModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeAboutModal()">&times;</span>
+            <h2 class="modal-title">关于我们</h2>
+            
+            <div class="modal-section">
+                <h3 class="modal-subtitle">我们是谁？</h3>
+                <p class="modal-text">华东政法大学 Restructure Vision (RV-Agent)</p>
+            </div>
+            
+            <div class="modal-section">
+                <h3 class="modal-subtitle">如何联系我们？</h3>
+                <p class="modal-text">
+                    <strong>邮箱：</strong>
+                    <a href="mailto:rjasmine756@163.com" class="modal-email">rjasmine756@163.com</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 联系我们弹窗 -->
+    <div id="recruitModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeRecruitModal()">&times;</span>
+            <h2 class="modal-title">关于我们</h2>
+            
+            <div class="modal-section">
+                <h3 class="modal-subtitle">我们是谁？</h3>
+                <p class="modal-text">华东政法大学 Restructure Vision (RV-Agent)</p>
+            </div>
+            
+            <div class="modal-section">
+                <h3 class="modal-subtitle">如何联系我们？</h3>
+                <p class="modal-text">
+                    <strong>邮箱：</strong>
+                    <a href="mailto:rjasmine756@163.com" class="modal-email">rjasmine756@163.com</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 平台人员介绍弹窗 -->
+    <div id="teamModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeTeamModal()">&times;</span>
+            <h2 class="modal-title">平台人员介绍</h2>
+            
+            <div class="modal-section">
+                <p class="modal-text">
+                    <strong>任嘉敏：</strong>华东政法大学刑事法学院，算法模型构建、官方网站开发与智能体系统架构设计。<br><br>
+                    <strong>肖佳懿：</strong>华东政法大学经济法学院学院，负责破产法律评估模块、合规性审查。<br><br>
+                    <strong>成&nbsp;&nbsp;&nbsp;&nbsp;澈：</strong>华东政法大学国际金融学院，负责会计核算体核算与视觉品牌构建。
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="utils.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
